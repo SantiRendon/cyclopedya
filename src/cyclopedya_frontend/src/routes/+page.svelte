@@ -1,7 +1,8 @@
 <script>
   import "../index.scss";
   import { backend } from "$lib/canisters";
-    import Card from "$lib/Card.svelte";
+  import Card from "$lib/Card.svelte";
+  import QRScanner from "$lib/QRScanner.svelte";
 
   let greeting = "";
 
@@ -28,6 +29,12 @@
   </main>
 
 -->  
+
+<main>
+  <h1>QR Code Scanner</h1>
+  <QRScanner />
+</main>
+
 <main>
   <Card/> 
 </main>

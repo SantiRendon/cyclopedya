@@ -1,7 +1,7 @@
 
 <script>
     import "../index.scss"
-    // export const prerender = true;
+    export const prerender = true;
 </script>
 
 <slot/>

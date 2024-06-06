@@ -1,4 +1,4 @@
-@isbn = '9780552144292'
+@isbn = 9780552144292
 @id = '14538432'
 
 # [id,isbn]
@@ -12,7 +12,7 @@
 GET https://openlibrary.org/isbn/{{isbn}}.json HTTP/1.1
 
 ### Get cover with ID or isbn
-GET https://covers.openlibrary.org/b/{{type-2}}/{{isbn}}-{{size}}.jpg HTTP/1.1
+GET https://covers.openlibrary.org/b/isbn/{{isbn}}-L.jpg HTTP/1.1
 
 ### Get book date with ISBN
 GET https://openlibrary.org/api/books?bibkeys=ISBN:{{isbn}}&format=json HTTP/1.1

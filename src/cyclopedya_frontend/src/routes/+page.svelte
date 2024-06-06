@@ -1,6 +1,7 @@
 <script>
   import "../index.scss";
   import { backend } from "$lib/canisters";
+    import Card from "$lib/Card.svelte";
 
   let greeting = "";
 
@@ -23,4 +24,6 @@
     <button type="submit">Click Me!</button>
   </form>
   <section id="greeting">{greeting}</section>
+<!-- <Card/> -->
 </main>
+

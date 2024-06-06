@@ -1,0 +1,18 @@
+@isbn = '9780552144292'
+@id = '14538432'
+
+# [id,isbn]
+@type-1 = 'id'
+@type-2 = 'isbn'
+
+# [S,M,L] -> [Small, Medium, Large]
+@size = 'M'
+
+### Get book date with ISBN
+GET https://openlibrary.org/isbn/{{isbn}}.json HTTP/1.1
+
+### Get cover with ID or isbn
+GET https://covers.openlibrary.org/b/{{type-2}}/{{isbn}}-{{size}}.jpg HTTP/1.1
+
+### Get book date with ISBN
+GET https://openlibrary.org/api/books?bibkeys=ISBN:{{isbn}}&format=json HTTP/1.1

@@ -5,12 +5,10 @@
     subjects: [ "Drama texts: from c 1900 -","General", "Fiction - Fantasy"],
     cover: "./cover.jpg",
     author: "Terry Pratchet",
-    first_sentence: "his is the bright candlelit room where the life-timers are stored-shelf",
+    first_sentence: "His is the bright candlelit room where the life-timers are stored-shelf",
     info_url: "https://openlibrary.org/books/OL7815144M/Mort",
     save_button: "function()"
 }
-
-
 
 </script>
 
@@ -21,21 +19,22 @@
         alt="A kitten sits patiently between a terracotta pot and decorative grasses."
     />
 
-    <strong>{book.title} - {book.isbn}</strong><br />
-    <p>{book.first_sentence}</p>
-    <p>{book.subjects[2]}</p>
-    <small>{book.author}</small>
+    <div style="text-align: center">
+        <strong>{book.title} - {book.isbn}</strong><br />
+        <p>{book.first_sentence}</p>
+        <p>{book.author}</p>
+        <small>{book.subjects[2]}</small>
+    </div>
 
     <div slot="footer">
         <sl-button pill variant="primary" href={book.info_url} target="blank">More Info</sl-button>
-        <sl-button pill>Save Book</sl-button>
-        
+        <sl-button pill variant="neutral">Save Book</sl-button>        
     </div>
 </sl-card>
 
 <style>
     .card-overview {
-        max-width: 400px;
+        max-width: 350px;
     }
 
     .card-overview small {

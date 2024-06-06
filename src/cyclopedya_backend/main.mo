@@ -23,8 +23,8 @@ actor {
     let url = "https://" # host # "/isbn/" # isbn # ".json";
 
     let request_headers = [
-      { name = "Host"; value = host # ":443" },
-      { name = "User-Agent"; value = "exchange_rate_canister" },
+      // { name = "Host"; value = host # ":443" },
+      // { name = "User-Agent"; value = "exchange_rate_canister" },
     ];
 
     let transform_context : Types.TransformContext = {
@@ -55,7 +55,7 @@ actor {
     };
 
     //6. RETURN RESPONSE OF THE BODY
-    decoded_text;
+    return decoded_text;
   };
 
   //7. CREATE TRANSFORM FUNCTION
@@ -78,6 +78,6 @@ actor {
         { name = "X-Content-Type-Options"; value = "nosniff" },
       ];
     };
-    transformed;
+    return transformed;
   };
 };

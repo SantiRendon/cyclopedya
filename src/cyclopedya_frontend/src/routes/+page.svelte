@@ -3,8 +3,10 @@
   import { backend } from "$lib/canisters";
   import Card from "$lib/Card.svelte";
   import QRScanner from "$lib/QRScanner.svelte";
+  import { onMount } from "svelte";
 
   let greeting = "";
+  let data = [];
 
   function onSubmit(event) {
     const name = event.target.name.value;
@@ -13,7 +15,24 @@
     });
     return false;
   }
+
+  async function fetchData() {
+    try {
+      const data = await backend.get_book_info("9780552144292").then((response) => {
+      console.log("response:" + response);
+    });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  onMount(async () => {
+    data = await fetchData();
+    console.log("data:",data);
+  });
 </script>
+
 <!--
   <main>
     <img src="/logo2.svg" alt="DFINITY logo" />
@@ -36,7 +55,5 @@
 </main>
 
 <main>
-  <Card/> 
+  <Card />
 </main>
-
-

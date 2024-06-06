@@ -1,0 +1,10 @@
+{
+    "title": "Mort",
+    "isbn": "9780552144292",
+    "subjects": [ "Drama texts: from c 1900 -","General", "Fiction - Fantasy"],
+    "cover": "./cover.jpg",
+    "author": "Terry Pratchet",
+    "first_sentence": "his is the bright candlelit room where the life-timers are stored-shelf",
+    "info_url": "https://openlibrary.org/books/OL7815144M/Mort",
+    "save_button": "function()"
+}

@@ -30,10 +30,17 @@ dfx start --background --clean
 # Deploys your canisters to the replica and generates your candid interface
 dfx deploy
 
-# fast command deploy and start
+# Fast comand deploy and start
 dfx start --background --clean && dfx deploy
 
 dfx stop && dfx start --background --clean && dfx deploy
+```
+## Running the frontend
+
+If you want to test your frontend, you can use the following commands:
+
+```bash
+cd src/cyclopedya_frontend && npm start
 ```
 
 Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.

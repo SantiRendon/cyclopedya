@@ -18,10 +18,8 @@
 
   async function fetchData() {
     try {
-      const data = await backend.get_book_info("9780552144292").then((response) => {
-      console.log("response:" + response);
-    });
-      return data;
+      const data = await backend.get_book_info("9780552144292");
+      return JSON.parse(data)
     } catch (error) {
       console.log(error);
     }

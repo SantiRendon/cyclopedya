@@ -3,6 +3,7 @@
   import { backend } from "$lib/canisters";
   import Card from "$lib/Card.svelte";
   import QRScanner from "$lib/QRScanner.svelte";
+  import Carrusel from "$lib/Carrusel.svelte";
   import { onMount } from "svelte";
 
   let greeting = "";
@@ -29,6 +30,7 @@
     data = await fetchData();
     console.log("data:",data);
   });
+
 </script>
 
 <!--
@@ -51,9 +53,10 @@
   <div style="text-align: center;">
     <h3>Escanea el codigo de barras de tu libro</h3>
     <QRScanner />
+
+    <Card />
+
+    <Carrusel />
   </div>
 </main>
 
-<main>
-  <Card />
-</main>

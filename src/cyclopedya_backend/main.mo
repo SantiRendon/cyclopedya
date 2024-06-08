@@ -2,11 +2,7 @@ import Text "mo:base/Text";
 import Blob "mo:base/Blob";
 import Types "Types";
 import Cycles "mo:base/ExperimentalCycles";
-// import Error "mo:base/Error";
-// import Debug "mo:base/Debug";
-// import Array "mo:base/Array";
-// import Nat8 "mo:base/Nat8";
-// import Nat64 "mo:base/Nat64";
+import Debug "mo:base/Debug";
 actor {
   public query func greet(name : Text) : async Text {
     return "Hello, " # name # "!";
@@ -20,12 +16,9 @@ actor {
 
     //2. SETUP ARGUMENTS FOR HTTP GET request
     let host : Text = "openlibrary.org";
-    let url = "https://" # host # "/isbn/" # isbn # ".json";
+    let url = "https://" # host # "/search.json?q=" # isbn;
 
-    let request_headers = [
-      // { name = "Host"; value = host # ":443" },
-      // { name = "User-Agent"; value = "exchange_rate_canister" },
-    ];
+    let request_headers = [];
 
     let transform_context : Types.TransformContext = {
       function = transform;
@@ -53,9 +46,44 @@ actor {
       case (null) { "No value returned" };
       case (?y) { y };
     };
-
     //6. RETURN RESPONSE OF THE BODY
-    return decoded_text;
+    decoded_text;
+  };
+
+  public func get_book_urls(isbn : Text) : async Text {
+
+    let ic : Types.IC = actor ("aaaaa-aa");
+
+    let host : Text = "openlibrary.org";
+    let url = "https://" # host # "/api/books?bibkeys=ISBN:" # isbn # "&format=json";
+
+    let request_headers = [];
+
+    let transform_context : Types.TransformContext = {
+      function = transform;
+      context = Blob.fromArray([]);
+    };
+
+    let request : Types.HttpRequestArgs = {
+      url = url;
+      max_response_bytes = null; //optional for request
+      headers = request_headers;
+      body = null; //optional for request
+      method = #get;
+      transform = ?transform_context;
+    };
+
+    Cycles.add(20_000_000_000);
+
+    let response : Types.HttpResponsePayload = await ic.http_request(request);
+
+    let response_body : Blob = Blob.fromArray(response.body);
+    let decoded_text : Text = switch (Text.decodeUtf8(response_body)) {
+      case (null) { "No value returned" };
+      case (?y) { y };
+    };
+
+    decoded_text;
   };
 
   //7. CREATE TRANSFORM FUNCTION

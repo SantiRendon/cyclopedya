@@ -50,8 +50,10 @@
 -->  
 
 <main>
-  <h1>QR Code Scanner</h1>
-  <QRScanner />
+  <div style="text-align: center;">
+    <h3>Escanea el codigo de barras de tu libro</h3>
+    <QRScanner />
+  </div>
 </main>
 
 <main>

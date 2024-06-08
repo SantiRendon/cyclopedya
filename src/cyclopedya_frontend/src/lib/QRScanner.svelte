@@ -33,9 +33,11 @@
   
   <style>
     #reader {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
       margin: auto;
+      border: 2px solid black;
+      border-radius: 10px;
     }
   </style>
   

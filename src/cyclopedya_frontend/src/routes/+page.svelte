@@ -49,7 +49,7 @@
 -->
 
 <main>
-  <div style="text-align: center;">
+  <div class="container">
     <Carrusel />
     <h3>Escanea el codigo de barras de tu libro</h3>
     <QRScanner />
@@ -57,3 +57,22 @@
     <Card />
   </div>
 </main>
+
+<style>
+
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 20px;
+		text-align: center;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	h3 {
+		margin-top: 20px;
+		font-size: 24px;
+		color: #333;
+	}
+</style>

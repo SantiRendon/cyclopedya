@@ -32,22 +32,6 @@
   });
 </script>
 
-<!--
-  <main>
-    <img src="/logo2.svg" alt="DFINITY logo" />
-    <br />
-    <br />
-    <form action="#" on:submit|preventDefault={onSubmit}>
-      <label for="name">Enter your name: &nbsp;</label>
-      <input id="name" alt="Name" type="text" />
-      <button type="submit">Click Me!</button>
-    </form>
-    <section id="greeting">{greeting}</section>
-
-  </main>
-
--->
-
 <main>
   <div class="container">
     <Carrusel />
@@ -59,20 +43,19 @@
 </main>
 
 <style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
 
-	.container {
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 20px;
-		text-align: center;
-		background-color: #fff;
-		border-radius: 10px;
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-	}
-
-	h3 {
-		margin-top: 20px;
-		font-size: 24px;
-		color: #333;
-	}
+  h3 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+  }
 </style>

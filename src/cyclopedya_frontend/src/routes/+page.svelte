@@ -20,7 +20,7 @@
   async function fetchData() {
     try {
       const data = await backend.get_book_info("9780552144292");
-      return JSON.parse(data)
+      return JSON.parse(data);
     } catch (error) {
       console.log(error);
     }
@@ -28,9 +28,8 @@
 
   onMount(async () => {
     data = await fetchData();
-    console.log("data:",data);
+    console.log("data:", data);
   });
-
 </script>
 
 <!--

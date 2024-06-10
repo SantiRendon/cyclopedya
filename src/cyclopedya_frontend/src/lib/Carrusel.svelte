@@ -21,7 +21,7 @@
 </sl-carousel>
 
 <style>
-.sl-carousel-item img {
+sl-carousel-item img {
     max-width: 100%;
     height: auto;
 }

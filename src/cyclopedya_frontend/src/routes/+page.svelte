@@ -47,16 +47,14 @@
 
   </main>
 
--->  
+-->
 
 <main>
   <div style="text-align: center;">
+    <Carrusel />
     <h3>Escanea el codigo de barras de tu libro</h3>
     <QRScanner />
 
     <Card />
-
-    <Carrusel />
   </div>
 </main>
-

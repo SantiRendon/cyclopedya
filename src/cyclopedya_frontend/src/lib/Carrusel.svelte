@@ -22,8 +22,6 @@
 
 <style>
 sl-carousel-item img {
-    margin-top: 50px;
-    max-width: 80%;
     height: auto;
     border-radius: 30px;
 }

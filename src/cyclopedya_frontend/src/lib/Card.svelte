@@ -3,7 +3,7 @@
     import { backend } from "$lib/canisters";
 
     export let isbn;
-    
+
     let isLoading = false;
 
     let book = {
@@ -66,7 +66,7 @@
 </script>
 
 {#if isLoading}
-    <sl-spinner style="font-size: 50px; --track-width: 10px;"></sl-spinner>
+    <sl-spinner style="font-size: 100px; --track-width: 10px; margin-top: 2.5rem;"></sl-spinner>
 {:else}
     <sl-card class="card-overview">
         <img

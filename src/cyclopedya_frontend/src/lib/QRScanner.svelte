@@ -1,9 +1,8 @@
 <script>
   import { onMount } from "svelte";
   import { Html5QrcodeScanner } from "html5-qrcode";
-  import { writable } from "svelte/store";
+  import { scannerValue } from "$lib/stores";
 
-  let scannerValue = writable(null);
   let scanner;
   let isScanning;
 

@@ -10,12 +10,26 @@
   scannerValue.subscribe((value) => {
     isbn = value;
   });
+
+  function clearScan() {
+    isbn = null;
+    console.log("clear");
+  }
 </script>
 
 <main>
   <div class="container">
     <Carrusel />
-    <h3>Escanea el codigo de barras de tu libro</h3>
+    <section class="title-section">
+      <h3>Escanea el codigo de barras de tu libro</h3>
+      <button on:click={clearScan} style="position: relative; left: 70px;">
+        <sl-icon
+          name="arrow-repeat"
+          label="Edit"
+          style="font-size: 1.5rem;"
+        ></sl-icon>
+      </button>
+    </section>
     {#if isbn}
       <Card {isbn} />
     {:else}
@@ -42,5 +56,11 @@
     margin-top: 20px;
     font-size: 24px;
     color: #333;
+  }
+
+  .title-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>

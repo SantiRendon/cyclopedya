@@ -45,28 +45,44 @@
     }
 
     onMount(async () => {
-        let info = await fetchInfoBook(isbn);
-        let urls = await fetchUrlBook(isbn);
+        try {
+            // Obtener la información del libro y las URLs asociadas
+            const info = await fetchInfoBook(isbn);
+            const urls = await fetchUrlBook(isbn);
 
-        let newCover = resizeImageUrl(urls.thumbnail_url);
+            // Mostrar la información del libro en la consola
+            console.log(info);
 
-        book = {
-            title: info.title,
-            isbn: isbn,
-            subjects: info.subject,
-            author: info.author_name,
-            preview: urls.preview_url,
-            info_url: urls.info_url,
-            cover: newCover,
-            // save_button: "function()",
-        };
+            // Redimensionar la imagen de la portada
+            const newCover = resizeImageUrl(urls.thumbnail_url);
 
-        isLoading = false;
+            // Crear el objeto del libro con la información obtenida
+            book = {
+                title: info.title,
+                isbn: isbn,
+                subjects: info.subject,
+                author: info.author_name,
+                preview: urls.preview_url,
+                info_url: urls.info_url,
+                cover: newCover,
+                ratings_average: info.ratings_average,
+            };
+
+            // Cambiar el estado de carga a falso
+            isLoading = false;
+
+            return book;
+        } catch (error) {
+            console.error("Error fetching book details:", error);
+            isLoading = false;
+        }
     });
 </script>
 
 {#if isLoading}
-    <sl-spinner style="font-size: 100px; --track-width: 10px; margin-top: 2.5rem;"></sl-spinner>
+    <sl-spinner
+        style="font-size: 100px; --track-width: 10px; margin-top: 2.5rem;"
+    ></sl-spinner>
 {:else}
     <sl-card class="card-overview">
         <img
@@ -89,7 +105,8 @@
                 href={book.info_url}
                 target="blank">More Info</sl-button
             >
-            <sl-button pill variant="neutral">Save Book</sl-button>
+            <sl-rating label="Rating" precision="0.5" readonly value={book.ratings_average}
+            ></sl-rating>
         </div>
     </sl-card>
 {/if}

@@ -22,7 +22,7 @@
     <Carrusel />
     <section class="title-section">
       <h3>Escanea el codigo de barras de tu libro</h3>
-      <button on:click={clearScan} style="position: relative; left: 70px;">
+      <button on:click={clearScan} style="position: relative; left: 70px; border-radius: 100% padding: 20px">
         <sl-icon
           name="arrow-repeat"
           label="Edit"

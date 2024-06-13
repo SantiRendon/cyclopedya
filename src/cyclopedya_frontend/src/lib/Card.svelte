@@ -83,7 +83,7 @@
     <sl-spinner
         style="font-size: 100px; --track-width: 10px; margin-top: 2.5rem;"
     ></sl-spinner>
-{:else}
+{:else if book?.isbn}
     <sl-card class="card-overview">
         <img
             slot="image"
@@ -105,10 +105,21 @@
                 href={book.info_url}
                 target="blank">More Info</sl-button
             >
-            <sl-rating label="Rating" precision="0.5" readonly value={book.ratings_average}
+            <sl-rating
+                label="Rating"
+                precision="0.5"
+                readonly
+                value={book.ratings_average}
             ></sl-rating>
         </div>
     </sl-card>
+{:else}
+<sl-alert variant="danger" open>
+    <sl-icon slot="icon" name="exclamation-circle"></sl-icon>
+    <strong>Error:</strong> Libro no encontrado<br />
+    Por favor, vuelve a escanear el codigo e inténtalo de nuevo.
+</sl-alert>
+
 {/if}
 
 <style>
